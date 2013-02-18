@@ -1,11 +1,12 @@
 ---
 layout: default
-title: 我的Blog
+title: foreveryl 
 ---
-<h2>{{ page.title }}</h2>
-<p>最新文章</p>
-<ul>
-　{% for post in site.posts %}
-　<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
-</ul>
+
+    {% for post in site.posts %}
+      <div class="hero-unit">
+        <p><h2><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></h2>{{ post.date | date_to_string }} - {{site.author}}</p>
+        <p>{{ post.content | strip_html | truncatewords: 55 }}</p>
+        <p><a href="{{site.baseurl}}{{ post.url }}">Read more ...</a></p>
+      </div>
+    {% endfor %}
